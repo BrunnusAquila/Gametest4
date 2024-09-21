@@ -1,4 +1,6 @@
-**Hello world**,
+**Hello world**
+
+![                                             ](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjJveGFlNGprcHpoaWlrd3l2N3R2YmJob21ldnVvN29vcWxyNG0weCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/10jmkQ3gZXBUbe/giphy.webp)
 
 This is a repository for a test game that I will be updating weekly with the goal of learning GDScript and using the Godot engine. The game will be a brick-breaking game—simple, yet useful for my learning.
 
