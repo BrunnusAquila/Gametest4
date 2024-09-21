@@ -1,0 +1,227 @@
+[gd_scene load_steps=25 format=3 uid="uid://c4pee030ammfk"]
+
+[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_cyjy0"]
+[ext_resource type="Script" path="res://Scripts/paddle.gd" id="2_j2mib"]
+[ext_resource type="Texture2D" uid="uid://kemmtbso87xr" path="res://Sprites/paddle.png" id="3_5nyxt"]
+[ext_resource type="Script" path="res://Scripts/ball.gd" id="4_aybby"]
+[ext_resource type="Texture2D" uid="uid://rkh0u0a4krr" path="res://Sprites/ball.png" id="5_rhs6k"]
+[ext_resource type="AudioStream" uid="uid://jhtdchm5denl" path="res://Soundtrack/Yoshi's Island - Death Sound (8-bit).mp3" id="6_30fxg"]
+[ext_resource type="Script" path="res://Scripts/bricks.gd" id="6_n6mk4"]
+[ext_resource type="Texture2D" uid="uid://g4khkgygr0qc" path="res://Sprites/brick.png" id="7_vapu3"]
+[ext_resource type="Script" path="res://Scripts/area_2d.gd" id="8_ylhoa"]
+[ext_resource type="AudioStream" uid="uid://jhxceuq7c8sc" path="res://Soundtrack/[8bit] The Mamas & The Papas - California Dreamin' (Chiptune Cover).mp3" id="9_806ak"]
+[ext_resource type="Script" path="res://Scripts/detecção.gd" id="10_h8qq1"]
+[ext_resource type="AudioStream" uid="uid://dbdpfchuflkdx" path="res://Soundtrack/8- bit explosion sound effect [SFX].mp3" id="10_uyq5s"]
+[ext_resource type="Script" path="res://Scripts/bricks_blue.gd" id="13_swyp1"]
+[ext_resource type="Texture2D" uid="uid://f8uu1nw48mlk" path="res://Sprites/brickz.png" id="13_xxg37"]
+[ext_resource type="Script" path="res://brickz.gd" id="14_m7460"]
+[ext_resource type="Script" path="res://Scripts/check_button.gd" id="17_gpcj0"]
+[ext_resource type="Texture2D" uid="uid://bpgqjch0kihhd" path="res://Sprites/baraaaa.png" id="18_h1o86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8av5"]
+size = Vector2(79, 10)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vdrwc"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g48b"]
+size = Vector2(14, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dq2n"]
+size = Vector2(92, 47)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0bt58"]
+b = Vector2(643, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0v2is"]
+size = Vector2(644, 359.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yscfc"]
+size = Vector2(139, 27)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_cyjy0")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(-1, -1, 0, 360, -139, 357, -127, -54, 686, -49, 683, 371, 641, 363, 641, 3)
+metadata/_edit_lock_ = true
+
+[node name="Paddle" type="CharacterBody2D" parent="."]
+position = Vector2(298, 327)
+script = ExtResource("2_j2mib")
+
+[node name="Sprite2D" type="Sprite2D" parent="Paddle"]
+position = Vector2(1, 4)
+scale = Vector2(2, 2.25)
+texture = ExtResource("3_5nyxt")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
+position = Vector2(1.5, 5)
+shape = SubResource("RectangleShape2D_m8av5")
+metadata/_edit_lock_ = true
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(291, 264)
+physics_material_override = SubResource("PhysicsMaterial_vdrwc")
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 1
+linear_velocity = Vector2(200, -200)
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("4_aybby")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+texture_filter = 1
+position = Vector2(1, -2)
+scale = Vector2(6.25, 6.25)
+texture = ExtResource("5_rhs6k")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2(1, -2.5)
+shape = SubResource("RectangleShape2D_8g48b")
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Ball"]
+position = Vector2(-32, -51)
+stream = ExtResource("10_uyq5s")
+
+[node name="Bricks_red" type="Node2D" parent="."]
+script = ExtResource("6_n6mk4")
+
+[node name="Brick" type="StaticBody2D" parent="Bricks_red"]
+position = Vector2(86, 52)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bricks_red/Brick"]
+position = Vector2(-3, -2)
+scale = Vector2(3.07812, 3.46875)
+texture = ExtResource("7_vapu3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bricks_red/Brick"]
+position = Vector2(-3, -2.5)
+shape = SubResource("RectangleShape2D_5dq2n")
+metadata/_edit_lock_ = true
+
+[node name="Brick2" type="StaticBody2D" parent="Bricks_red"]
+position = Vector2(66, 171)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bricks_red/Brick2"]
+position = Vector2(-3, -2)
+scale = Vector2(3.07812, 3.46875)
+texture = ExtResource("7_vapu3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bricks_red/Brick2"]
+position = Vector2(-3, -2.5)
+shape = SubResource("RectangleShape2D_5dq2n")
+metadata/_edit_lock_ = true
+
+[node name="Brick3" type="StaticBody2D" parent="Bricks_red"]
+position = Vector2(244, 59)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bricks_red/Brick3"]
+position = Vector2(-3, -2)
+scale = Vector2(3.07812, 3.46875)
+texture = ExtResource("7_vapu3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bricks_red/Brick3"]
+position = Vector2(-3, -2.5)
+shape = SubResource("RectangleShape2D_5dq2n")
+metadata/_edit_lock_ = true
+
+[node name="Brick4" type="StaticBody2D" parent="Bricks_red"]
+position = Vector2(379, 156)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bricks_red/Brick4"]
+position = Vector2(-3, -2)
+scale = Vector2(3.07812, 3.46875)
+texture = ExtResource("7_vapu3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bricks_red/Brick4"]
+position = Vector2(-3, -2.5)
+shape = SubResource("RectangleShape2D_5dq2n")
+metadata/_edit_lock_ = true
+
+[node name="Bricks5" type="StaticBody2D" parent="Bricks_red"]
+position = Vector2(581, 110)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bricks_red/Bricks5"]
+position = Vector2(-3, -2)
+scale = Vector2(3.07812, 3.46875)
+texture = ExtResource("7_vapu3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bricks_red/Bricks5"]
+position = Vector2(-3, -2.5)
+shape = SubResource("RectangleShape2D_5dq2n")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-1, 393)
+script = ExtResource("8_ylhoa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, -20)
+shape = SubResource("SegmentShape2D_0bt58")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D"]
+visible = false
+stream = ExtResource("6_30fxg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_806ak")
+playback_type = 1
+parameters/looping = true
+
+[node name="detecção" type="Area2D" parent="."]
+script = ExtResource("10_h8qq1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detecção"]
+position = Vector2(320, 179.75)
+shape = SubResource("RectangleShape2D_0v2is")
+metadata/_edit_lock_ = true
+
+[node name="Bricks_blue" type="Node2D" parent="."]
+script = ExtResource("13_swyp1")
+
+[node name="Brickz" type="StaticBody2D" parent="Bricks_blue"]
+position = Vector2(464, 46)
+script = ExtResource("14_m7460")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bricks_blue/Brickz"]
+position = Vector2(3, 2)
+scale = Vector2(4.53125, 1.8125)
+texture = ExtResource("13_xxg37")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bricks_blue/Brickz"]
+position = Vector2(3.5, 3.5)
+shape = SubResource("RectangleShape2D_yscfc")
+metadata/_edit_lock_ = true
+
+[node name="CheckButton" type="Button" parent="."]
+offset_left = 592.0
+offset_top = -9.0
+offset_right = 648.0
+offset_bottom = 48.0
+tooltip_text = "Press Space or Click"
+icon = ExtResource("18_h1o86")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("17_gpcj0")
+
+[connection signal="ready" from="Ball/AudioStreamPlayer2D" to="Ball" method="_on_audio_stream_player_2d_ready"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="detecção" to="detecção" method="_on_body_entered"]
+[connection signal="body_exited" from="detecção" to="detecção" method="_on_body_exited"]
+[connection signal="pressed" from="CheckButton" to="CheckButton" method="_on_pressed"]
