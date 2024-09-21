@@ -1,8 +1,9 @@
 **Hello world**,
 
-This is a repository for a test game that I will update weekly with the goal of learning GDScript and using the Godot engine. The game will be in the bricks-breaking genre—simple but useful for my learning.
+This is a repository for a test game that I will be updating weekly with the goal of learning GDScript and using the Godot engine. The game will be a brick-breaking game—simple, yet useful for my learning.
 
-If you want to use the code for another purpose, feel free! It is original code, and you can use it without needing to give credit.
+If you want to use the code for any other purpose, feel free! It is original code, and you can use it without giving credit. Just be careful with the soundtracks and sprites, as they may be copyrighted by third parties if used for commercial purposes.
+
 
 **GOODBYE!!!!**
 
