@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://vw4qsdu1c1v2"]
+
+[ext_resource type="Texture2D" uid="uid://dmga70wo0se88" path="res://Sprites/image.webp" id="1_8awc1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fevx0"]
+size = Vector2(42, 26)
+
+[node name="ITENS" type="Node2D"]
+
+[node name="fome" type="AnimatableBody2D" parent="."]
+position = Vector2(486, 90)
+
+[node name="Sprite2D" type="Sprite2D" parent="fome"]
+position = Vector2(-4, 4)
+scale = Vector2(0.0711305, 0.0694444)
+texture = ExtResource("1_8awc1")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fome"]
+position = Vector2(-3, 1)
+shape = SubResource("RectangleShape2D_fevx0")
+metadata/_edit_lock_ = true
