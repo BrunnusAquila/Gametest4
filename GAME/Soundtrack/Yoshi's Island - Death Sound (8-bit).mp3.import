@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jhtdchm5denl"
+path="res://.godot/imported/Yoshi's Island - Death Sound (8-bit).mp3-ed5a0dfaccd668321e8c848a495b73a9.mp3str"
+
+[deps]
+
+source_file="res://Soundtrack/Yoshi's Island - Death Sound (8-bit).mp3"
+dest_files=["res://.godot/imported/Yoshi's Island - Death Sound (8-bit).mp3-ed5a0dfaccd668321e8c848a495b73a9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

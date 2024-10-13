@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jhxceuq7c8sc"
+path="res://.godot/imported/[8bit] The Mamas & The Papas - California Dreamin' (Chiptune Cover).mp3-a5f4b4cd52087e36a1a0941c9d5030fa.mp3str"
+
+[deps]
+
+source_file="res://Soundtrack/[8bit] The Mamas & The Papas - California Dreamin' (Chiptune Cover).mp3"
+dest_files=["res://.godot/imported/[8bit] The Mamas & The Papas - California Dreamin' (Chiptune Cover).mp3-a5f4b4cd52087e36a1a0941c9d5030fa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
